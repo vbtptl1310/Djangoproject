@@ -1,0 +1,56 @@
+{% extends 'seller-header.html' %}
+{% load static %}
+
+{% block content %}
+<section id="main-content">
+	<section class="wrapper">
+		<div class="table-agile-info">
+ <div class="panel panel-default">
+     
+    </div>
+    <div>
+      <table class="table" ui-jq="footable" ui-options='{
+        "paging": {
+          "enabled": true
+        },
+        
+        "filtering": {
+          "enabled": true
+        },
+        "sorting": {
+          "enabled": true
+        }}'>
+        <thead>
+<div class="tables">
+    <div class="panel-body widget-shadow">
+        <header class="panel-heading">Product List</header>
+       
+        <table class="table">
+          <tr>
+            <th>Employee Name</th>
+            <td>{{productitem.name}}</td>    
+          </tr>
+          <tr>
+            <th>Description</th>
+            <td>{{productitem.des}}</td>    
+          </tr>
+          <tr>
+            <th>price</th>
+            <td>{{productitem.price}}</td>    
+          </tr>
+          <tr>
+            <th>Quantity</th>
+            <td>{{productitem.quantity}}</td>    
+           </tr>
+          <tr>
+            <th>Discount</th>
+            <td>{{productitem.discount}}</td>    
+          </tr> 
+        </table>
+        <form method="post">
+          {% csrf_token %}
+          <input type="submit" class="btn-btn-danger" value="Delete">
+        </form>
+    </div>
+</div>
+{% endblock %}
